@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/external/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Recipe details</title>
+</head>
+<body>
+
+
+    <!-- *******************************************************
+                    Header Section
+    ******************************************************** -->
+    <nav>
+        <div class="logo">
+            <a href="/home"><img src="img/logo/logo.png" alt=""></a>
+        </div>
+
+        <div class="list">
+            <ul class="list-items">
+                <li class="item"><a href="/recipes">Recipes</a></li>
+                <li class="item"><a href="/addRecipe">Add recipe</a></li>
+                <li class="item"><a href="#">Category</a>
+                    <ul class="dropdown" >
+                        <li th:each="category: ${categories}" class="dropdown-item">
+                            <a th:href="${'/category' + category.id}">
+                                <span th:text="${category.categoryName}"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="item"><a href="#">Sort By</a>
+                    <ul class="dropdown">
+                        <li class="dropdown-item">
+                            <a th:href="${'/SortByPrice'}"><span>Cheap</span></a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a th:href="${'/SortByDuration'}"><span>Fast</span></a>
+                        </li>
+
+                        <li class="dropdown-item">
+                            <a th:href="${'/SortByPopular'}"><span>Popular</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="item"><a href="/favRecipe">Favorite</a></li>
+                <li class="item"><a href="/myRecipes">My Recipes</a></li>
+            </ul>
+        </div>
+
+        <div class="profile">
+            <div class="profile-name">
+                <span th:text="${username}"></span>
+            </div>
+
+            <div class="profile-option">
+                <ul class="list-items">
+                    <li class="item"><img th:src="@{${'images/profiles/' + profileImage}}" alt=""></a>
+                        <ul class="dropdown" >
+                            <li class="dropdown-item">
+                                <a th:href="${'/editProfile'}"><span>Edit Profile</span></a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a th:href="${'/viewProfile'}"><span>View Profile</span></a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a th:href="${'/logout'}"><span>Logout</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- ======================================================
+                recipe section
+    ========================================================-->
+    <section class="recipe-details">
+        <div class="container">
+            <div class="row">
+                <div class="img-box">
+                    <img th:src ="@{${'images/recipes/' +recipe.id +'/' + recipe.recipeImage}}" alt="">
+                </div>
+                <div class="text-box">
+                    <div class="name-box">
+                        <p>Name: <span th:text="${recipe.recipeName}"></span></p>
+                        <p>Price: <span th:text="${recipe.recipePrice}"></span></p>
+                    </div>
+
+                    <div class="desc-box">
+                        <p>Short Description: <span th:text="${recipe.recipeDescription}"></span></p>
+                    </div>
+
+                    <div class="type-box">
+                        <p>Duration: <span th:text="${recipe.recipeDuration}"></span></p>
+                        <p>Gategory: <span th:text="${categoryName}"></span></p>
+                        <p>Views: <span th:text="${recipe.numberOfVisits}"></span></p>
+                    </div>
+
+                    <div class="prep-box">
+                        <p>Preperation: <span th:text="${recipe.recipePreperation}"></span></p>
+                    </div>
+
+                    <div class="rate-box">
+                        <form class="form" action="#" th:action="@{${'/rateRecipe'+ recipe.id}}" method="post">
+                            <input class="rating"  max="5" oninput="this.style.setProperty('--value', `${this.valueAsNumber}`)"
+                                step="0.5"  style="--value:2.5" type="range" name="rating">
+                            <button class="btn">Rate</button>
+                        </form>
+                    </div>
+
+                    <div class="submit-box">
+                        <span th:text ="${success}"></span>
+                        <button class="btn"><a th:href= "${'/addToFavorite' + recipe.id}">Add To Favorite</a></button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+</html>

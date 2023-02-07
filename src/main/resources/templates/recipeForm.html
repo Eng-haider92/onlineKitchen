@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/external/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Add New Recipe</title>
+</head>
+<body>
+
+
+    <!-- *******************************************************
+                    Header Section
+    ******************************************************** -->
+    <nav>
+        <div class="logo">
+            <a href="/home"><img src="img/logo/logo.png" alt=""></a>
+        </div>
+
+        <div class="list">
+            <ul class="list-items">
+                <li class="item"><a href="/recipes">Recipes</a></li>
+                <li class="item"><a href="#">Category</a>
+                    <ul class="dropdown" >
+                        <li th:each="category: ${categories}" class="dropdown-item">
+                            <a th:href="${'/category' + category.id}">
+                                <span th:text="${category.categoryName}"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="item"><a href="#">Sort By</a>
+                    <ul class="dropdown">
+                        <li class="dropdown-item">
+                            <a th:href="${'/SortByPrice'}"><span>Cheap</span></a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a th:href="${'/SortByDuration'}"><span>Fast</span></a>
+                        </li>
+
+                        <li class="dropdown-item">
+                            <a th:href="${'/SortByPopular'}"><span>Popular</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="item"><a href="/favRecipe">Favorite</a></li>
+                <li class="item"><a href="/myRecipes">My Recipes</a></li>
+            </ul>
+        </div>
+
+        <div class="profile">
+            <div class="profile-name">
+                <span th:text="${username}"></span>
+            </div>
+
+            <div class="profile-option">
+                <ul class="list-items">
+                    <li class="item"><img th:src="@{${'images/profiles/' + profileImage}}" alt=""></a>
+                        <ul class="dropdown" >
+                            <li class="dropdown-item">
+                                <a th:href="${'/editProfile'}"><span>Edit Profile</span></a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a th:href="${'/viewProfile'}"><span>View Profile</span></a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a th:href="${'/logout'}"><span>Logout</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- *******************************************************
+                    Recipe Form
+    ******************************************************** -->
+
+    <section class="add-recipe">
+        <div class="container">
+            <div class="row">
+                <div class="head-content">
+                    <h2>New recipe</h2>
+                </div>
+
+                <form class="form" action="#" th:action="@{/addRecipe}" th:object = "${recipe}"  enctype="multipart/form-data" method="post">
+                    <div class="name-content">
+                        <div class="recipe-name">
+                            <input type="hidden" th:field = "*{id}" th:value ="${id}">
+                            <label for="recipeName">Recipe Name:</label>
+                            <input required type="text" name="recipeName" th:field="*{recipeName}" placeholder="recipe Name.."><br>
+                            </label>
+                        </div>
+
+                        <div class="recipe-desc">
+                            <label for="recipeDescription">Recipe Description:</label>
+                            <input type="text" required name="recipeDescription" th:field="*{recipeDescription}" placeholder="short Description.."><br>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="price-content">
+                        <div class="recipe-price">
+                            <label for="recipePrice">Recipe Price:</label>
+                            <input type="number" value="" name="recipePrice" required min="5" max="1000" th:field="*{recipePrice}" placeholder="Price.."><br>
+                            </label>
+                        </div>
+
+                        <div class="recipe-duration">
+                            <label for="recipeDuration">Recipe Duration:</label>
+                            <input type="number" name="recipeDuration" required min="5" max="360" th:field="*{recipeDuration}" placeholder="Duration.."><br>
+                            </label>
+                        </div>
+
+                        <div class="recipe-gategory">
+                            <select required name="categoryName">
+                                <option value="">Category</option>
+                                <option th:each ="category: ${categories}"
+                                        th:value = "${category.categoryName}"
+                                        th:text = "${category.categoryName}">
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="recipe-image">
+                            <input type="file" name="imageFile" accept="image/png, image/jpg, image/jpeg"><br>
+                        </div>
+
+                    </div>
+
+                    <div class="prep-content">
+                        <div class="recipe-prep">
+                            <label for="recipePreperation">Recipe Preperation:</label>
+                            <textarea required name="recipePreperation" th:field="*{recipePreperation}" placeholder="Recipe Preperation.."></textarea>
+                            </label>
+                        </div>
+                    </div>
+
+   
+
+                    <div class="submit-content">
+                        <div class="recipe-error">
+                            <label class="error" th:text="${message}"></label>
+                        </div>
+
+                        <div class="recipe-submit">
+                            <a href="/home">Cancel</a>
+                            <button type="submit" class="btn">Save</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+</body>
+</html>

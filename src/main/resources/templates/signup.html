@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/external/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Create new account</title>
+</head>
+<body>
+
+    <!-- ======================================================
+                Sign Up Page
+    ========================================================-->
+    <section class="sign-section">
+        <div class="container">
+            <div class="row">
+                <div class="image-content">
+                    <div class="recipe-box">
+                        <div class="img-box">
+                            <img src="img/recipes/8.jpeg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p>Name: <span>hot chicken</span></p>
+                            <p>Price: <span>100.00$</span></p>
+                            <p>Gategory: <span>fast food</span></p>
+                        </div>
+                    </div>
+
+                    <div class="recipe-box">
+                        <div class="img-box">
+                            <img src="img/recipes/9.jpeg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p>Name: <span>rice</span></p>
+                            <p>Price: <span>200.00$</span></p>
+                            <p>Gategory: <span>food</span></p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a href="/"><i class="fa fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <div class="sign-content">
+                    <div class="form">
+                        <div class="form-start">
+                            <h1>Online kitchen</h1>
+                            <span>Sign Up</span>
+                        </div>
+                        <form action="#" th:action="@{/signup}" th:object = "${user}" method="post">
+                            <div class="form-content">
+                                <input type="text" th:field="*{username}" placeholder="Username.."><br>
+                                <label class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+                                </label>
+                            </div>
+
+                            <div class="form-content">
+                                <input type="text"  th:field="*{email}" placeholder="Email.."><br>
+                                <label class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                                </label>
+                            </div>
+
+                            <div class="form-content">
+                                <input type="password" th:field="*{password}" placeholder="Password.."><br>
+                                <label class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+                                </label>
+                            </div>
+
+                            <div class="form-content">
+                                <label class="error" th:text="${existUser}">
+                                </label>
+                            </div>
+
+                            <div class="form-content">                        
+                                <button type="submit" class="btn">Sign Up</button><br>
+                                <span>Already have an account?<a href="/login">Log in</a></span>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+</html>
