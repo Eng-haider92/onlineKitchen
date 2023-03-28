@@ -33,9 +33,9 @@ export const content = {
                 techName: 'Thymelef',
             },
         ],
-        caseStudy: '',
-        link: '',
-        note: '',
+        caseStudy: 'Online kitchen is a web application allow you to create your own recipes and view other users recipes, add to favorite, rate recipes, sort and many other stuff with secure login systems.',
+        link: 'Will upload later',
+        note: 'I have delete the live server because it was free and it was very slow, i will upload it to better server later, i f you want to see please feel free to contact me',
         img_slides:[
             {
                 image_url: img_1,
