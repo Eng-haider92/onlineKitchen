@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Eng-haider92/onlineKitchen/static/css/main.5de07220.css",
+    "main.js": "/Eng-haider92/onlineKitchen/static/js/main.6b8fa19b.js",
+    "static/media/01_online.png": "/Eng-haider92/onlineKitchen/static/media/01_online.84c00ff9667412ed1725.png",
+    "static/media/05_online.png": "/Eng-haider92/onlineKitchen/static/media/05_online.023099f8c3a4053bdb2f.png",
+    "static/media/07_online.png": "/Eng-haider92/onlineKitchen/static/media/07_online.db69ba00217b4eefa755.png",
+    "static/media/04_online.png": "/Eng-haider92/onlineKitchen/static/media/04_online.e826cfc18f6bee5d7762.png",
+    "static/media/11_online.png": "/Eng-haider92/onlineKitchen/static/media/11_online.9605e3a9caafa1a33ab3.png",
+    "static/media/08_online.png": "/Eng-haider92/onlineKitchen/static/media/08_online.194a2f5842a857115117.png",
+    "static/media/10_online.png": "/Eng-haider92/onlineKitchen/static/media/10_online.24bcadcac5ed6c2b10e5.png",
+    "static/media/09_online.png": "/Eng-haider92/onlineKitchen/static/media/09_online.5a673d932f2c9084b6f3.png",
+    "static/media/02_online.png": "/Eng-haider92/onlineKitchen/static/media/02_online.8082f7e3d287a5a43d58.png",
+    "static/media/03_online.png": "/Eng-haider92/onlineKitchen/static/media/03_online.f9fd5c00eeeb49dbe1c3.png",
+    "static/media/12_online.png": "/Eng-haider92/onlineKitchen/static/media/12_online.8054255fd7607321b243.png",
+    "static/media/13_online.png": "/Eng-haider92/onlineKitchen/static/media/13_online.bea6791b2cb72dc73cc3.png",
+    "static/media/06_online.png": "/Eng-haider92/onlineKitchen/static/media/06_online.feb386a3c3027949f57d.png",
+    "index.html": "/Eng-haider92/onlineKitchen/index.html",
+    "main.5de07220.css.map": "/Eng-haider92/onlineKitchen/static/css/main.5de07220.css.map",
+    "main.6b8fa19b.js.map": "/Eng-haider92/onlineKitchen/static/js/main.6b8fa19b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5de07220.css",
+    "static/js/main.6b8fa19b.js"
+  ]
+}
