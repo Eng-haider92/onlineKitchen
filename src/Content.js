@@ -34,7 +34,7 @@ export const content = {
             },
         ],
         caseStudy: 'Online kitchen is a web application allow you to create your own recipes and view other users recipes, add to favorite, rate recipes, sort and many other stuff with secure login systems.',
-        link: 'https://github.com/Eng-haider92/onlineKitchen',
+        link: 'https://Eng-haider92.github.io/onlineKitchen',
         note: 'I have delete the live server because it was free and it was very slow, i will upload it to better server later, i f you want to see please feel free to contact me',
         img_slides:[
             {
