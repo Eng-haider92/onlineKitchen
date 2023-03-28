@@ -59,7 +59,7 @@ const Gallery = ()=>{
                         </div>
                     ))}
                     <p>Case Study: <span>{onlineKitchen.caseStudy}</span></p>
-                    <p>Live Server: <a href={onlineKitchen.link} target="_blank" rel="noreferrer"></a></p>
+                    <p>Live Server: <a href={onlineKitchen.link} rel="noreferrer">Not availble</a></p>
                     <p>Note: <span>{onlineKitchen.note}</span></p>
                 </div>
             </div>
